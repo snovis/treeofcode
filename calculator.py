@@ -7,6 +7,9 @@ Currently supports: Addition only
 def add(a, b):
     """Add two numbers together"""
     return a + b
+def subtract(a, b):
+    """Subtract two numbers"""
+    return a - b
 
 
 def main():
@@ -36,8 +39,14 @@ def main():
                 num2 = float(input("Enter second number: "))
                 result = add(num1, num2)
                 print(f"\nResult: {num1} + {num2} = {result}\n")
+            
+            if choice == '2':
+                num1 = float(input("Enter first number: "))
+                num2 = float(input("Enter second number: "))
+                result = subtract(num1, num2)
+                print(f"\nResult: {num1} - {num2} = {result}\n")
 
-            elif choice in ['2', '3', '4']:
+            elif choice in ['3', '4']:
                 print("This operation is not yet implemented!\n")
 
             else:
