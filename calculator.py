@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Simple Calculator Application
-Currently supports: Addition only
+Currently supports: Addition, Subtraction, and Multiplication
 """
 
 def add(a, b):
@@ -10,6 +10,10 @@ def add(a, b):
 def subtract(a, b):
     """Subtract two numbers"""
     return a - b
+
+def multiply(a, b):
+    """Multiply two numbers"""
+    return a * b
 
 
 def main():
@@ -20,8 +24,8 @@ def main():
     print()
     print("Available operations:")
     print("  [1] Add")
-    print("  [2] Subtract (Coming soon)")
-    print("  [3] Multiply (Coming soon)")
+    print("  [2] Subtract")
+    print("  [3] Multiply")
     print("  [4] Divide (Coming soon)")
     print("  [0] Exit")
     print()
@@ -46,7 +50,13 @@ def main():
                 result = subtract(num1, num2)
                 print(f"\nResult: {num1} - {num2} = {result}\n")
 
-            elif choice in ['3', '4']:
+            if choice == '3':
+                num1 = float(input("Enter first number: "))
+                num2 = float(input("Enter second number: "))
+                result = multiply(num1, num2)
+                print(f"\nResult: {num1} × {num2} = {result}\n")
+
+            elif choice == '4':
                 print("This operation is not yet implemented!\n")
 
             else:
