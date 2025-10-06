@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Simple Calculator Application
-Currently supports: Addition only
+Currently supports: Addition and Subtraction
 """
 
 import sys
@@ -76,12 +76,12 @@ class Calculator(QWidget):
         self.btn_add.clicked.connect(lambda: self.operation_clicked('add'))
         operations_layout.addWidget(self.btn_add)
 
-        # Subtract button (disabled - coming soon)
+        # Subtract button (enabled)
         self.btn_subtract = QPushButton('-')
         self.btn_subtract.setFont(QFont('Arial', 18, QFont.Bold))
         self.btn_subtract.setMinimumHeight(60)
-        self.btn_subtract.setEnabled(False)
-        self.btn_subtract.setStyleSheet("background-color: #cccccc;")
+        self.btn_subtract.setStyleSheet("background-color: #FF9800; color: white;")
+        self.btn_subtract.clicked.connect(lambda: self.operation_clicked('subtract'))
         operations_layout.addWidget(self.btn_subtract)
 
         # Multiply button (disabled - coming soon)
@@ -122,7 +122,7 @@ class Calculator(QWidget):
         layout.addLayout(control_layout)
 
         # Status label
-        self.status_label = QLabel('Currently supports: Addition only')
+        self.status_label = QLabel('Currently supports: Addition and Subtraction')
         self.status_label.setAlignment(Qt.AlignCenter)
         self.status_label.setFont(QFont('Arial', 10))
         self.status_label.setStyleSheet("color: #666;")
@@ -158,6 +158,9 @@ class Calculator(QWidget):
             if self.operation == 'add':
                 result = self.add(self.first_number, second_number)
                 self.display.setText(str(result))
+            elif self.operation == 'subtract':
+                result = self.subtract(self.first_number, second_number)
+                self.display.setText(str(result))
 
             # Reset for next calculation
             self.first_number = None
@@ -175,6 +178,10 @@ class Calculator(QWidget):
     def add(self, a, b):
         """Add two numbers together"""
         return a + b
+
+    def subtract(self, a, b):
+        """Subtract two numbers"""
+        return a - b
 
 
 def main():
