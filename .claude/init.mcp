@@ -1,0 +1,12 @@
+{
+  "on_worktree_create": [
+    {
+      "tool": "bash",
+      "command": "python -m venv .venv --upgrade-deps && .venv/bin/pip install -r requirements.txt --quiet || echo 'No requirements.txt found, skipping'"
+    },
+    {
+      "tool": "bash",
+      "command": ".venv/bin/pip install rich requests --quiet"
+    }
+  ]
+}
