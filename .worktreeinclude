@@ -1,0 +1,8 @@
+.env
+.env.local
+.env.*                  # catches .env.dev, .env.prod, etc.
+venv/                   # if you use a folder named venv instead of .venv
+secrets/
+config/local.yaml
+*.pem
+*.key
